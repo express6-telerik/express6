@@ -1,1 +1,1 @@
-# express6
+Task manager - nodejs application by Team Express6
