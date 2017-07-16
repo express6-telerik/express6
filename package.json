@@ -4,7 +4,7 @@
   "description": "Telerik Software Academy - Node.js Apps",
   "main": "index.js",
   "scripts": {
-    "start": "node app/app.js"
+    "start": "gulp server"
   },
   "repository": {
     "type": "git",
@@ -15,9 +15,12 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.15.3",
     "express-session": "^1.15.3",
-    "mongodb": "^2.2.29",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "mongodb": "^2.2.30",
     "passport": "^0.3.2",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "pug": "^2.0.0-rc.2"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

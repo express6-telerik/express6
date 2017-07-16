@@ -1,4 +1,4 @@
-Find roomate - nodejs application by Team Express6
+Find roommate - nodejs application by Team Express6
 
 # Course Project
 _Web applications with Node.js_
