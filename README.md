@@ -2,17 +2,17 @@ Task manager - nodejs application by Team Express6
 
 # Course Project
 
-## Web applications with Node.js
+_Web applications with Node.js_
 
 This document describes the course project assignment for the Web applications with Node.js course at Telerik Academy.
 
-### Project Description
+## Project Description
 
 Design and implement a Standard Web application using Node.js, Express and MongoDB.
 
 It can be a discussion forum, blog system, e-commerce site, online gaming site, social network, or any other web application by your choice.
 
-The application should have a:
+### The application should have a:
 
 public part (accessible without authentication)
 private part (available for registered users)
@@ -20,11 +20,11 @@ Public Part
 
 The public part of your projects should be visible without authentication. This public part could be the application start page, application statistics, the user login and user registration forms, as well as the public data of the users, e.g. the blog posts in a blog system, the public offers in a bid system, the products in an e-commerce system, etc.
 
-Private Part (Registered users area)
+### Private Part (Registered users area)
 
 Registered users should have personal area in the web application accessible after successful login. This area could hold for example the user's profiles management functionality, the user's offers in a bid system, the user's posts in a blog system, the user's photos in a photo sharing system, the user's contacts in a social network, etc.
 
-Technical Requirements
+### Technical Requirements
 
 Your Web application should use the following technologies, frameworks and development techniques:
 
@@ -105,7 +105,7 @@ Public Project Defense
 
 Each team will have to make a public defense of its work in front of a trainer (for about 30 minutes), in which each of the team members will answer to the trainer's questions individually.
 
-The public defense includes:
+### The public defense includes:
 
 Live demonstration of the developed web application (prepare sample data).
 Explain application structure and its back-end and front-end source code
