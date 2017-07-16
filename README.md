@@ -1,12 +1,12 @@
 Task manager - nodejs application by Team Express6
 
-Course Project
+#Course Project
 
-Web applications with Node.js
+##Web applications with Node.js
 
 This document describes the course project assignment for the Web applications with Node.js course at Telerik Academy.
 
-Project Description
+###Project Description
 
 Design and implement a Standard Web application using Node.js, Express and MongoDB.
 
