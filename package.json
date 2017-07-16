@@ -1,5 +1,5 @@
 {
-  "name": "Express6-task-management",
+  "name": "Express6-find-roommate",
   "version": "1.0.0",
   "description": "Telerik Software Academy - Node.js Apps",
   "main": "index.js",
@@ -12,7 +12,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "express": "^4.15.3"
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "mongodb": "^2.2.29",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
