@@ -1,4 +1,4 @@
-Task manager - nodejs application by Team Express6
+Find roomate - nodejs application by Team Express6
 
 # Course Project
 
