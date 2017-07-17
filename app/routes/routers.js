@@ -1,5 +1,4 @@
-/* globals __dirname */
-
+/* globals __dirname*/
 const path = require('path');
 const fs = require('fs');
 const attachRoutes = (app, data) => {

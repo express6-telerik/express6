@@ -6,11 +6,11 @@ const path = require('path');
 
 const app = express();
 
-    app.listen(3030, () => console.log('Magic'));
+    app.listen(3080, () => console.log('Magic'));
 
     // const init = () => {
-        app.set('view engine', 'pug');
-        app.use(favicon(path.join(__dirname, '../public', '/imgs/fav.ico')));
+    app.set('view engine', 'pug');
+    app.use(favicon(path.join(__dirname, '../public', '/imgs/fav.ico')));
     app.use('/static',
         express.static(
             path.join(__dirname, '../public')));
@@ -21,9 +21,12 @@ const app = express();
     app.get('/home', (req, res) => {
         return res.render('home');
     });
-app.get('/', (req, res) => {
-    return res.render('home');
-});
+    app.get('/contacts', (req, res) => {
+        return res.render('contacts');
+    });
+    app.get('/', (req, res) => {
+        return res.render('home');
+    });
     // return Promise.resolve(app);
 // };
 

@@ -37,6 +37,5 @@ gulp.task('dev', ['server:restart'], () => {
         ext: 'js',
         tasks: ['server:restart'],
         script: 'server.js',
-    })
-
+    });
 });

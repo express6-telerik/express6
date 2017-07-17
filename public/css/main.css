@@ -1,6 +1,9 @@
 body {
     background: url('../imgs/friends-wall.jpg');
+    opacity: 0.8;
+    background-size: cover;
     color: white;
+    position: relative;
 }
 
 .not404img{
