@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "babel-eslint": "^7.2.3",
-    "eslint-config-ideal": "^1.0.0"
-  }
-}
