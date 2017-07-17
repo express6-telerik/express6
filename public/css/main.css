@@ -1,16 +1,21 @@
-.backgroundimg-404 {
-    background-color: aqua;
-}
 body {
-    background-color: #05F1FF !important;
+    background: url('../imgs/friends-wall.jpg');
+    color: white;
+}
+
+.not404img{
+    background: url('../imgs/404.jpg');
 }
 
 h1.error-title {
-    color: #37003C;
     font-size: 66px;
     font-weight: bolder;
 }
 
 .error-container a{
     font-size: 30px;
+}
+
+li {
+   color: white;
 }
