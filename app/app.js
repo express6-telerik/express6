@@ -21,6 +21,9 @@ const app = express();
     app.get('/home', (req, res) => {
         return res.render('home');
     });
+app.get('/', (req, res) => {
+    return res.render('home');
+});
     // return Promise.resolve(app);
 // };
 

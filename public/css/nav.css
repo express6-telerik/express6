@@ -6,8 +6,8 @@
 .navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 22px; }
 
 .navbar .nav-collapse { position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin: 0; padding-right: 120px; padding-left: 80px; width: 100%; }
-.navbar.navbar-default .nav-collapse { rgba(255,0,123, .2)}
-.navbar.navbar-inverse .nav-collapse { rgba(255,0,0, .3) }
+.navbar.navbar-default .nav-collapse { rgba(255,90,160, .2)}
+.navbar.navbar-inverse .nav-collapse { rgba(255,40,60, .3) }
 .navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
 .nav-collapse>li { float: right; }
 
