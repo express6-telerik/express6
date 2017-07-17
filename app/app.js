@@ -3,32 +3,45 @@
 const express = require('express');
 const favicon = require('serve-favicon');
 const path = require('path');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const morgan = require('morgan');
 
-const app = express();
 
-    app.listen(3080, () => console.log('Magic'));
-
+const init = (data) => {
+    const app = express();
+    // app.listen(3080, () => console.log('Magic'));
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true }));
     // const init = () => {
     app.set('view engine', 'pug');
     app.use(favicon(path.join(__dirname, '../public', '/imgs/fav.ico')));
+    app.use(cookieParser());
+    app.use(session({
+        secret: 'secret',
+        saveUninitialized: true,
+        resave: true,
+    }));
+//
+  //  app.use(passport.initialize());
+  //  app.use(passport.session());
+
+  //  app.use(flash());
+
+    // global var
+    app.use( function(req, res, next) {
+        res.locals.user = req.user || null;
+        next();
+    });
     app.use('/static',
         express.static(
             path.join(__dirname, '../public')));
 
-    app.get('/404', (req, res) => {
-        return res.render('errorpage');
-    });
-    app.get('/home', (req, res) => {
-        return res.render('home');
-    });
-    app.get('/contacts', (req, res) => {
-        return res.render('contacts');
-    });
-    app.get('/', (req, res) => {
-        return res.render('home');
-    });
-    // return Promise.resolve(app);
-// };
+
+    require('./routers').init(app, data);
+    return Promise.resolve(app);
+};
 
 
-module.exports = app;
+module.exports = { init };
