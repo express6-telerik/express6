@@ -1,5 +1,4 @@
 const port = 3080;
-const connectionString = 'mongodb://localhost:3070/find-roommate';
-// const sessionSecret = 'Purple Unicorn';
+const connectionString = 'mongodb://localhost:27017/find-db';
 
 module.exports = { port, connectionString };
