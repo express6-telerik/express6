@@ -14,6 +14,7 @@ const init = (data) => {
     // app.listen(3080, () => console.log('Magic'));
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(require('connect-flash')());
     // const init = () => {
     app.set('view engine', 'pug');
     app.use(favicon(path.join(__dirname, '../public', '/imgs/fav.ico')));
