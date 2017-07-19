@@ -1,9 +1,9 @@
 const init = (data) => {
     const controller = {
         getAll(req, res) {
-            return data.items.getAll()
+            return data.flats.getAll()
                 .then((items) => {
-                    return res.render('items/all', {
+                    return res.render('flats/all', {
                         context: items,
                     });
                 });
