@@ -3,7 +3,7 @@ const init = (data) => {
         getAll(req, res) {
             return data.flats.getAll()
                 .then((items) => {
-                    return res.render('flats/all', {
+                    return res.render('flats', {
                         context: items,
                     });
                 });
