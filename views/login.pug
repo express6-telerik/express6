@@ -1,10 +1,27 @@
 extends home
 
 block body-content
-    h1
-        | Sin in
-    form(action='/login', method="POST")
-    input.form-control(type="text" name="username" placeholder="Enter username")
-    input.form-control(type="password" name="password" placeholder="Enter password")
-    button.btn.btn-success
-        | Sign In
+    .container
+      .row.main
+        .main-login.main-center
+          form(method='post', action='#')
+            .form-group
+              label.cols-sm-2.control-label(for='username') Username
+              .cols-sm-10
+                .input-group
+                  span.input-group-addon
+                    i.fa.fa-users.fa(aria-hidden='true')
+                  input#username.form-control(type='text', name='username', placeholder='Enter your Username')
+            .form-group
+              label.cols-sm-2.control-label(for='password') Password
+              .cols-sm-10
+                .input-group
+                  span.input-group-addon
+                    i.fa.fa-lock.fa-lg(aria-hidden='true')
+                  input#password.form-control(type='password', name='password', placeholder='Enter your Password')
+            .form-group
+              a#button.btn.btn-primary.btn-lg.btn-block.login-button(href='/', type='button') Login
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    // Include all compiled plugins (below), or include individual files as needed
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
