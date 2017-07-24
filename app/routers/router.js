@@ -11,13 +11,26 @@ const attachTo = (app, data) => {
         return res.render('errorpage');
     });
     app.get('/home', (req, res) => {
-        return res.render('home');
+        return res.render('home/home', {
+            result: {
+                user: req.user,
+            },
+        });
     });
     app.get('/contacts', (req, res) => {
         return res.render('contacts');
     });
-    app.get('/', (req, res) => {
-        return res.render('home');
+    app.get('/register', (req, res) => {
+        res.render('sign-up');
+    });
+
+    app.get('/login', (req, res) => {
+        res.render('login');
+    });
+
+    app.get('/logout', (req, res) => {
+        req.logout();
+        res.redirect('/');
     });
 
     fs.readdirSync(__dirname)
@@ -35,7 +48,7 @@ module.exports = { attachTo };
 //     const controller = require('./flats.routers/controller').init(data);
 //
 //     app.get('/flats', (req, res) => {
-//         // auth
+//         // user
 //         return controller.getAll(req, res);
 //     });
 //     app.get('/404', (req, res) => {

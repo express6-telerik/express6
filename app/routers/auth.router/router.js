@@ -20,11 +20,11 @@ const attachTo = (app, data) => {
         })
         .post('/sign-in', passport.authenticate('local', {
             successRedirect: '/',
-            failureRedirect: '/auth/sign-in',
+            failureRedirect: '/user/sign-in',
             failureFlash: true,
         }));
 
-    app.use('/auth', router);
+    app.use('/user', router);
 };
 
 module.exports = { attachTo };

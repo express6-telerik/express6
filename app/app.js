@@ -1,11 +1,11 @@
-// /* globals __dirname*/
+ /* globals __dirname*/
 // const express = require('express');
 //
 // const init = (data) => {
 //     const app = express();
 //
 //     require('./config').applyTo(app);
-//     require('./auth').applyTo(app, data);
+//     require('./user').applyTo(app, data);
 //
 //     app.use(require('connect-flash')());
 //     app.use((req, res, next) => {
@@ -35,6 +35,7 @@ const morgan = require('morgan');
 const init = (data) => {
     const app = express();
     // app.listen(3080, () => console.log('Magic'));
+    require('./auth').applyTo(app, data);
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(require('connect-flash')());
@@ -47,6 +48,7 @@ const init = (data) => {
         saveUninitialized: true,
         resave: true,
     }));
+    //require('./config')(app);
 //
   //  app.use(passport.initialize());
   //  app.use(passport.session());

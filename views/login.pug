@@ -1,0 +1,10 @@
+extends home
+
+block body-content
+    h1
+        | Sin in
+    form(action='/login', method="POST")
+    input.form-control(type="text" name="username" placeholder="Enter username")
+    input.form-control(type="password" name="password" placeholder="Enter password")
+    button.btn.btn-success
+        | Sign In

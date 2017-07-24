@@ -1,0 +1,63 @@
+doctype html
+html(lang='en')
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // Website CSS style
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+    // Website Font style
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css')
+    link(rel='stylesheet', href='register.css')
+    // Google Fonts
+    link(href='https://fonts.googleapis.com/css?family=Passion+One', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Oxygen', rel='stylesheet', type='text/css')
+    title Admin
+  body
+    .container
+      .row.main
+        .main-login.main-center
+          form(method='post', action='#')
+            .form-group
+              label.cols-sm-2.control-label(for='name') Your Name
+              .cols-sm-10
+                .input-group
+                  span.input-group-addon
+                    i.fa.fa-user.fa(aria-hidden='true')
+                  input#name.form-control(type='text', name='name', placeholder='Enter your Name')
+            .form-group
+              label.cols-sm-2.control-label(for='email') Your Email
+              .cols-sm-10
+                .input-group
+                  span.input-group-addon
+                    i.fa.fa-envelope.fa(aria-hidden='true')
+                  input#email.form-control(type='text', name='email', placeholder='Enter your Email')
+            .form-group
+              label.cols-sm-2.control-label(for='username') Username
+              .cols-sm-10
+                .input-group
+                  span.input-group-addon
+                    i.fa.fa-users.fa(aria-hidden='true')
+                  input#username.form-control(type='text', name='username', placeholder='Enter your Username')
+            .form-group
+              label.cols-sm-2.control-label(for='password') Password
+              .cols-sm-10
+                .input-group
+                  span.input-group-addon
+                    i.fa.fa-lock.fa-lg(aria-hidden='true')
+                  input#password.form-control(type='password', name='password', placeholder='Enter your Password')
+            .form-group
+              label.cols-sm-2.control-label(for='confirm') Confirm Password
+              .cols-sm-10
+                .input-group
+                  span.input-group-addon
+                    i.fa.fa-lock.fa-lg(aria-hidden='true')      
+                  input#confirm.form-control(type='password', name='confirm', placeholder='Confirm your Password')
+              //input#confirm.form-control(type='password', name='confirm', placeholder='Confirm your Password')
+            .form-group
+            input#agree(type='checkbox', name='agree', value='agree', required='')
+            label(for='agree') Do you agree to the terms?
+            .form-group
+              a#button.btn.btn-primary.btn-lg.btn-block.login-button(href='/', type='button') Register
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    // Include all compiled plugins (below), or include individual files as needed
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')

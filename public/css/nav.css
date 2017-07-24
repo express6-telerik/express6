@@ -9,7 +9,14 @@
 nav.navbar.navbar-fixed-top.navbar-collapse{
     background-color: rgba(105,105,105, 0.4);
     color: white;
+    float: right;
 }
 a{
     color: white;
+}
+#bs-example-navbar-collapse-2{
+    display: inline-block;
+    float: right;
+    text-align: right;
+    list-style-type: none;
 }
