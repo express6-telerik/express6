@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const passport = require('passport');
 
-const attachTo = (app, data) => {
+const init = (app, data) => {
     const router = new Router();
     const controller = require('./controller').init(data);
 
@@ -20,15 +20,11 @@ const attachTo = (app, data) => {
         })
         .post('/sign-in', passport.authenticate('local', {
             successRedirect: '/',
-            failureRedirect: '/user/sign-in',
+            failureRedirect: '/auth/sign-in',
             failureFlash: true,
         }));
 
     app.use('/user', router);
 };
 
-module.exports = { attachTo };
-
-// Questions
-// how to choose category
-// where and how to update the category
+module.exports = { init };

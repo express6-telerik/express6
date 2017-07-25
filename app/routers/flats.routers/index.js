@@ -1,4 +1,4 @@
-const attachTo = (app, data) => {
+const init = (app, data) => {
     const controller = require('./controller').init(data);
 
     app.get('/flats', (req, res) => {
@@ -26,4 +26,4 @@ const attachTo = (app, data) => {
     });
 };
 
-module.exports = { attachTo };
+module.exports = { init };

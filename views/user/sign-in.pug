@@ -1,10 +1,10 @@
-extends home
+extends ../home
 
 block body-content
     .container
       .row.main
         .main-login.main-center
-          form(method='post', action='#')
+          form(method='post', action='/user/sign-in')
             .form-group
               label.cols-sm-2.control-label(for='username') Username
               .cols-sm-10

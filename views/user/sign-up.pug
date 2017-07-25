@@ -15,14 +15,16 @@ html(lang='en')
     .container
       .row.main
         .main-login.main-center
-          form(method='post', action='#')
-            .form-group
-              label.cols-sm-2.control-label(for='name') Your Name
-              .cols-sm-10
-                .input-group
-                  span.input-group-addon
-                    i.fa.fa-user.fa(aria-hidden='true')
-                  input#name.form-control(type='text', name='name', placeholder='Enter your Name')
+          h2(class="form-register-heading")
+            | Моля регистрирайте се:
+          form(method='post', action='/user/sign-up')
+            //.form-group
+            //  label.cols-sm-2.control-label(for='name') Your Name
+            //  .cols-sm-10
+            //    .input-group
+            //      span.input-group-addon
+            //        i.fa.fa-user.fa(aria-hidden='true')
+            //      input#name.form-control(type='text', name='name', placeholder='Enter your Name')
             .form-group
               label.cols-sm-2.control-label(for='email') Your Email
               .cols-sm-10
