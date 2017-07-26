@@ -1,8 +1,9 @@
 body {
-    background: url('../imgs/friends-wall.jpg');
+    background: url('../imgs/sofa-wallpaper.jpg');
     opacity: 0.8;
     background-size: cover;
     color: white;
+    font-weight: bold;
     position: relative;
 }
 
@@ -21,4 +22,8 @@ h1.error-title {
 
 li {
    color: white;
+}
+
+a, u {
+    text-decoration: none !important;
 }

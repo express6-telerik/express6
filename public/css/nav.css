@@ -15,7 +15,7 @@ a{
     color: white;
 }
 #bs-example-navbar-collapse-2{
-    display: inline-block;
+    display: inline;
     float: right;
     text-align: right;
     list-style-type: none;
