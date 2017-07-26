@@ -23,7 +23,7 @@ const init = (app, data) => {
             res.render('errorpage', { notLogedIn: 'You are not signed-in' });
         }
     });
-    app.get('/profile/user/:id', UserController.getPublicProfile);
-    app.post('/profile/:id/update', UserController.updateProfile);
+   // app.get('/profile/user/:id', UserController.getPublicProfile);
+   // app.post('/profile/:id/update', UserController.updateProfile);
 };
 module.exports = { init };

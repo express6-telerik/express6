@@ -8,6 +8,14 @@ const init = (data) => {
                     });
                 });
         },
+        loggedIn(req, res, next) {
+        if (req.user) {
+            next();
+            console.log(req.user);
+        } else {
+            res.redirect('/sign-in');
+        }
+    },
     };
 
     return controller;

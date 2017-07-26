@@ -14,6 +14,7 @@ const init = (app, data) => {
         return res.render('home', {
             result: {
                 user: req.user,
+                username: req.user.username,
             },
         });
     });

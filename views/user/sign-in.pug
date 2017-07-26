@@ -2,26 +2,43 @@ extends ../home
 
 block body-content
     .container
-      .row.main
-        .main-login.main-center
-          form(method='post', action='/user/sign-in')
-            .form-group
-              label.cols-sm-2.control-label(for='username') Username
-              .cols-sm-10
-                .input-group
-                  span.input-group-addon
-                    i.fa.fa-users.fa(aria-hidden='true')
-                  input#username.form-control(type='text', name='username', placeholder='Enter your Username')
-            .form-group
-              label.cols-sm-2.control-label(for='password') Password
-              .cols-sm-10
-                .input-group
-                  span.input-group-addon
-                    i.fa.fa-lock.fa-lg(aria-hidden='true')
-                  input#password.form-control(type='password', name='password', placeholder='Enter your Password')
-            .form-group
-              a#button.btn.btn-primary.btn-lg.btn-block.login-button(href='/', type='button') Login
-    // jQuery (necessary for Bootstrap's JavaScript plugins)
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
-    // Include all compiled plugins (below), or include individual files as needed
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+      form(action="/sign-in" class="form-register" method="post")
+        h2(class="form-register-heading")
+          | Please sign in
+        if msg
+          div(class="alert alert-danger")
+            =msg
+        if msgLogin
+          div(class="alert alert-success")
+            =msgLogin
+        label(for="inputUsername" class="sr-only")
+          | Username
+        input(type="username" id="inputUsername" class="form-control" placeholder="Username" name="username" required autofocus)
+        label(for="inputPassword" class="sr-only")
+          | Password
+        input(type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required)
+        button(class="btn btn-lg btn-primary btn-block" type="submit")
+          | Sign in
+    //  .row.main
+    //    .main-login.main-center
+    //      form(method='post', action='/sign-in')
+    //        .form-group
+    //          label.cols-sm-2.control-label(for='username') Username
+    //          .cols-sm-10
+    //            .input-group
+    //              span.input-group-addon
+    //                i.fa.fa-users.fa(aria-hidden='true')
+    //              input#username.form-control(type='text', name='username', placeholder='Enter your Username')
+    //        .form-group
+    //          label.cols-sm-2.control-label(for='password') Password
+    //          .cols-sm-10
+    //            .input-group
+    //              span.input-group-addon
+    //                i.fa.fa-lock.fa-lg(aria-hidden='true')
+    //              input#password.form-control(type='password', name='password', placeholder='Enter your Password')
+    //        .form-group
+    //          a#button.btn.btn-primary.btn-lg.btn-block.login-button(href='/', type='button') Login
+    //// jQuery (necessary for Bootstrap's JavaScript plugins)
+    //script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    //// Include all compiled plugins (below), or include individual files as needed
+    //script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')

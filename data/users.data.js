@@ -12,22 +12,33 @@ class UsersData extends BaseData {
             .then(([user]) => user);
     }
 
-    checkPassword(username, password) {
-        return this.findByUsername(username)
-            .then((user) => {
-                if (!user) {
-                    throw new Error('Invalid user');
-                }
+    checkPasswords(signinPassword, userPassword, callback) {
+        if (signinPassword !== userPassword) {
+            return callback(false);
+        }
 
-                if (user.password !== password) {
-                    throw new Error('Invalid password');
-                }
-
-                return true;
-            });
+        return callback(true);
     }
 
-    checkIfUsernameAndEmailAreFree(username, email) {
+    // checkPasswords(username, password) {
+    //     return this.findByUsername(username)
+    //         .then((user) => {
+    //             if (!user) {
+    //                 throw new Error('Invalid user');
+    //             }
+    //
+    //             if (user.password !== password) {
+    //                 throw new Error('Invalid password');
+    //             }
+    //
+    //             return true;
+    //         })
+    //         .catch((err) => {
+    //             console.error(err);
+    //         });
+    // }
+
+    checkForFreeUsername(username, email) {
         return this.filterBy()
             .then((users) => {
                 for (let index = 0; index < users.length; index++) {

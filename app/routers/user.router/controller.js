@@ -5,12 +5,13 @@ const init = (data) => {
             const username = req.body.username;
             const password = req.body.password;
             const email = req.body.email;
-            UsersData.checkIfUsernameAndEmailAreFree(username, password)
+            UsersData.checkForFreeUsername(username, password)
                 .then((validator) => {
                     if (!(validator.valid)) {
                         return res.render('user/sign-up',
                             { msg: validator.msg });
                     }
+                    console.log(username);
 
                     return UsersData.create({
                         username: username,
