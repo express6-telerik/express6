@@ -1,4 +1,14 @@
 extends home
 block body-content
-    h1
-        |Contacts
+    #form-main
+        #form-div
+            form#form1.form
+                p.name
+                    input#name.feedback-input(name='name', type='text', class='validate[required,custom[onlyLetter],length[0,100]]', placeholder='Name')
+                p.email
+                    input#email.feedback-input(name='email', type='text', class='validate[required,custom[email]]', placeholder='Email')
+                p.text
+                    textarea#comment.feedback-input(name='text', class='validate[required,length[6,300]]', placeholder='Comment')
+                .submit
+                    input#button-blue(type='submit', value='SEND')
+                    .ease

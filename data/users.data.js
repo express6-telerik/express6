@@ -51,7 +51,6 @@ class UsersData extends BaseData {
                 };
             });
     }
-
 }
 
 module.exports = UsersData;
