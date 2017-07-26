@@ -1,43 +1,32 @@
-class UserController {
-    constructor(data) {
-        this.data = data;
-    }
-
-    getSignUpForm(req, res) {
-        return res.render('auth/sign-up');
-    }
-    getSignInForm(req, res) {
-        return res.render('auth/sign-in');
-    }
-    signOut(req, res) {
-        req.logout();
-        return res.redirect('/');
-    }
-
-    signUp(req, res) {
-        const bodyUser = req.body;
-
-        this.data.users.findByUsername(bodyUser.username)
-            .then((dbUser) => {
-                if (dbUser) {
-                    throw new Error('User already exists');
-                }
-
-                return this.data.users.create(bodyUser);
-            })
-            .then((dbUser) => {
-                return res.redirect('/auth/sign-in');
-            })
-            .catch((err) => {
-                req.flash('error', err);
-            });
-    }
-}
-
 const init = (data) => {
-    return new UserController(data);
+    const UsersData = data.users;
+    return {
+        register: (req, res) => {
+            const username = req.body.username;
+            const password = req.body.password;
+            const email = req.body.email;
+            UsersData.checkIfUsernameAndEmailAreFree(username, password)
+                .then((validator) => {
+                    if (!(validator.valid)) {
+                        return res.render('user/sign-up',
+                            { msg: validator.msg });
+                    }
+
+                    return UsersData.create({
+                        username: username,
+                        password: password,
+                        email: email,
+                    })
+                        .catch((err) => {
+                            console.error(err);
+                        })
+                    .then((createdUser) => {
+                        return res.render('user/sign-in');
+                    });
+                });
+        },
+
+    };
 };
 
 module.exports = { init };
-
-

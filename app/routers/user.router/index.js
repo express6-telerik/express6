@@ -1,30 +1,29 @@
-const { Router } = require('express');
 const passport = require('passport');
 
 const init = (app, data) => {
-    const router = new Router();
-    const controller = require('./controller').init(data);
+    const UserController = require('./controller').init(data);
 
-    router
-        .get('/sign-up', (req, res) => {
-            return controller.getSignUpForm(req, res);
-        })
-        .get('/sign-in', (req, res) => {
-            return controller.getSignInForm(req, res);
-        })
-        .post('/sign-out', (req, res) => {
-            return controller.signOut(req, res);
-        })
-        .post('/sign-up', (req, res) => {
-            return controller.signUp(req, res);
-        })
-        .post('/sign-in', passport.authenticate('local', {
+
+    app.post('/sign-up', UserController.register);
+
+
+    app.post('/sign-in', passport.authenticate('local',
+        {
             successRedirect: '/',
-            failureRedirect: '/auth/sign-in',
+            failureRedirect: '/errorpage',
             failureFlash: true,
-        }));
-
-    app.use('/user', router);
+        }),
+        function(req, res) {
+            res.render('home');
+        });
+    app.get('/profile/:id', (req, res) => {
+        if (req.isAuthenticated()) {
+            res.render('user/profile', { user: req.user });
+        } else {
+            res.render('errorpage', { notLogedIn: 'You are not signed-in' });
+        }
+    });
+    app.get('/profile/user/:id', UserController.getPublicProfile);
+    app.post('/profile/:id/update', UserController.updateProfile);
 };
-
 module.exports = { init };

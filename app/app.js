@@ -1,26 +1,18 @@
- /* globals __dirname*/
+/* globals __dirname */
+
 const express = require('express');
- const favicon = require('serve-favicon');
- const path = require('path');
- const bodyParser = require('body-parser');
- const cookieParser = require('cookie-parser');
- const session = require('express-session');
- const morgan = require('morgan');
+const favicon = require('serve-favicon');
+const path = require('path');
 
 const init = (data) => {
     const app = express();
 
-    require('./config').applyTo(app);
-    require('./auth').applyTo(app, data);
-
-    app.use(require('connect-flash')());
-    app.use((req, res, next) => {
-        res.locals.messages = require('express-messages')(req, res);
-        next();
-    });
-    app.use('/static', express.static(path.join(__dirname, '../public')));
-
+    //  config
+    require('./config').init(app, data);
+    require('./auth').init(app, data);
     app.use(favicon(path.join(__dirname, '../public', '/imgs/fav.ico')));
+
+    app.use('/public', express.static('static'));
 
     // global var
     app.use( function(req, res, next) {
@@ -28,15 +20,17 @@ const init = (data) => {
         res.locals.authenticated = req.isAuthenticated();
         next();
     });
+    app.use('/static',
+        express.static(
+            path.join(__dirname, '../public')));
 
     require('./routers').init(app, data);
 
     return Promise.resolve(app);
 };
 
-module.exports = {
-    init,
-};
+module.exports = { init };
+
 
 // const express = require('express');
 // const favicon = require('serve-favicon');
@@ -56,7 +50,7 @@ module.exports = {
 //     app.use(require('connect-flash')());
 //     // const init = () => {
 //     app.set('view engine', 'pug');
- //app.use(favicon(path.join(__dirname, '../public', '/imgs/fav.ico')));
+ // app.use(favicon(path.join(__dirname, '../public', '/imgs/fav.ico')));
 //     app.use(cookieParser());
 //     app.use(session({
 //         secret: 'secret',
