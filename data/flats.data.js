@@ -1,9 +1,9 @@
 const BaseData = require('./base/base.data');
-const Flated = require('../models/flat.model');
+const Flat = require('../models/flat.model');
 
-class ItemsData extends BaseData {
+class FlatData extends BaseData {
     constructor(db) {
-        super(db, Flated, Flated);
+        super(db, Flat, Flat);
     }
 
     _isModelValid(model) {
@@ -12,4 +12,4 @@ class ItemsData extends BaseData {
     }
 }
 
-module.exports = ItemsData;
+module.exports = FlatData;

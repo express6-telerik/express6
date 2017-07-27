@@ -9,6 +9,7 @@ head
     link(rel="stylesheet", href="static/css/nav.css")
     link(rel="stylesheet", href="static/css/flats.css")
     link(rel="stylesheet", href="static/css/contacts.css")
+    //link(rel="stylesheet", href="static/css/register.css")
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css')
 
     // Google Fonts
@@ -39,7 +40,7 @@ body(data-spy='scroll', data-target='.navbar', data-offset='50')
 
 
                             li
-                                a(href='/profile') Моят профил
+                                a(href='/profile/:id') Моят профил
                             li
                                 a(href='/flats') Квартири
 
@@ -47,7 +48,7 @@ body(data-spy='scroll', data-target='.navbar', data-offset='50')
                                 a(href='/vipflats') Вип квартири
 
                             li
-                                a(href='/') Добави квартира
+                                a(href='/addflat') Добави квартира
                             li
                                 a(href='/contacts') Контакти
 

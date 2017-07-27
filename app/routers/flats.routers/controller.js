@@ -8,6 +8,14 @@ const init = (data) => {
                     });
                 });
         },
+        addFlat(req, res) {
+            return data.flats.addFlat()
+                .then((items) => {
+                    return res.render('flats', {
+                        context: items,
+                    });
+                });
+        },
         loggedIn(req, res, next) {
         if (req.user) {
             next();
