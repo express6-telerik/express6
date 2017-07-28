@@ -15,6 +15,8 @@ const init = (app, data) => {
             result: {
                 user: req.user,
                 username: req.user.username,
+                email: req.user.email,
+                name: req.user.name,
             },
         });
     });

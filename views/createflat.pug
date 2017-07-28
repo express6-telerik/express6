@@ -1,54 +1,44 @@
 extends home
-
+block custom-scripts
 block body-content
     .container
         .row.main
             .main-login.main-center
                 h2(class="form-register-heading")
-                    | Моля регистрирайте се:
+                    | Добавяне на нова квартира:
 
-            form(action="/sign-up" class="form-register" method="post")
-                .form-group
-                    label.cols-sm-2.control-label(for='name') Your Name
-                    .cols-sm-10
-                        .input-group
-                            span.input-group-addon
-                                i.fa.fa-user.fa(aria-hidden='true')
-                            input#name.form-control(type='text', name='name', placeholder='Enter your Name')
-                .form-group
-                    label.cols-sm-2.control-label(for='email') Your Email
-                    .cols-sm-10
-                        .input-group
-                            span.input-group-addon
-                                i.fa.fa-envelope.fa(aria-hidden='true')
-                            input#email.form-control(type='text', name='email', placeholder='Enter your Email')
+            form(action="/addflat" class="form-addflat" method="post")
                 .form-group
                     label.cols-sm-2.control-label(for='username') Username
                     .cols-sm-10
                         .input-group
                             span.input-group-addon
                                 i.fa.fa-users.fa(aria-hidden='true')
-                            input#username.form-control(type='text', name='username', placeholder='Enter your Username')
+                            input#username.form-control(type='text', name='username', readonly=true, value=user.username)
                 .form-group
-                    label.cols-sm-2.control-label(for='password') Password
+                    label.cols-sm-2.control-label(for='title') Име
                     .cols-sm-10
                         .input-group
                             span.input-group-addon
-                                i.fa.fa-lock.fa-lg(aria-hidden='true')
-                            input#password.form-control(type='password', name='password', placeholder='Enter your Password')
+                                i.fa.fa-user.fa(aria-hidden='true')
+                            input#title.form-control(type='text', name='title', placeholder="Заглавие")
                 .form-group
-                    label.cols-sm-2.control-label(for='confirm') Confirm Password
+                    label.cols-sm-2.control-label(for='date') От дата
                     .cols-sm-10
                         .input-group
                             span.input-group-addon
-                                i.fa.fa-lock.fa-lg(aria-hidden='true')
-                            input#confirm.form-control(type='password', name='confirm', placeholder='Confirm your Password')
-                    //input#confirm.form-control(type='password', name='confirm', placeholder='Confirm your Password')
+                                i.fa.fa-envelope.fa(aria-hidden='true')
+                            input#date.form-control(type='text', name='date', readonly=true, placeholder="Дата")
                 .form-group
-                input#agree(type='checkbox', name='agree', value='agree', required='')
-                label(for='agree') Do you agree to the terms?
+                    label.cols-sm-2.control-label(for='content') Съдържание:
+                    .cols-sm-10
+                        .input-group
+                            span.input-group-addon
+                               // i.fa.fa-lock.fa-lg(aria-hidden='true')
+                            input#content.form-control(type='text', name='content', placeholder='Enter your content')
+                .form-group
                 button(class="btn btng btn-primary btn-block" type="submit")
-                    | Sign in
+                    | Добави квартира
 
 
             script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')

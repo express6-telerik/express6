@@ -1,7 +1,7 @@
 class Flat {
-    constructor(title, postBy, date, content) {
+    constructor(title, username, date, content) {
         this.title = title;
-        this.postBy = postBy;
+        this.username = username;
         this.date = date;
         this.content = content;
     }
