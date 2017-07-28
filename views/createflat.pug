@@ -1,5 +1,10 @@
 extends home
-block custom-scripts
+block extraHeader
+    style.
+        article, aside, figure, footer, header,
+        menu, nav, section {
+            display: block;
+        }
 block body-content
     .container
         .row.main
@@ -23,12 +28,33 @@ block body-content
                                 i.fa.fa-user.fa(aria-hidden='true')
                             input#title.form-control(type='text', name='title', placeholder="Заглавие")
                 .form-group
-                    label.cols-sm-2.control-label(for='date') От дата
+                    label.cols-sm-2.control-label(for='startDate') От дата
                     .cols-sm-10
                         .input-group
                             span.input-group-addon
                                 i.fa.fa-envelope.fa(aria-hidden='true')
-                            input#date.form-control(type='text', name='date', readonly=true, placeholder="Дата")
+                            input#startDate.form-control(type='text', name='startDate', readonly=true, placeholder="Дата")
+                .form-group
+                    label.cols-sm-2.control-label(for='endDate') До дата
+                    .cols-sm-10
+                        .input-group
+                            span.input-group-addon
+                                i.fa.fa-envelope.fa(aria-hidden='true')
+                            input#endDate.form-control(type='text', name='endDate', readonly=true, placeholder="Дата")
+                .form-group
+                    label.cols-sm-2.control-label(for='location') Квартал
+                    .cols-sm-10
+                        .input-group
+                            span.input-group-addon
+                                i.fa.fa-envelope.fa(aria-hidden='true')
+                            input#location.form-control(type='text', name='location', placeholder="квартал")
+                .form-group
+                    label.cols-sm-2.control-label(for='content') Квартира за (брой съквартиранти):
+                    .cols-sm-10
+                        .input-group
+                            span.input-group-addon
+                                i.fa.fa-lock.fa-lg(aria-hidden='true')
+                            input.scrollabletextbox(name='neededMates', placeholder='брой съквартиранти')
                 .form-group
                     label.cols-sm-2.control-label(for='content') Съдържание:
                     .cols-sm-10
@@ -36,9 +62,30 @@ block body-content
                             span.input-group-addon
                                 i.fa.fa-lock.fa-lg(aria-hidden='true')
                             input#content.form-control(type='text', name='content', placeholder='Enter your content')
+
+                .form-group
+                    input(type='file', onchange='readURL(this, #img);')
+                    img#img()
+                    input(type='file', onchange='readURL(this, #img2);')
+                    img#img2()
+                    input(type='file', onchange='readURL(this, #img3);')
+                    img#img3()
                 .form-group
                 button(class="btn btng btn-primary btn-block" type="submit")
                     | Добави квартира
+block custom-scripts
+    script.
+        function readURL(input, tag) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $(`${tag}`)
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(200);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
 
-
-            script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')

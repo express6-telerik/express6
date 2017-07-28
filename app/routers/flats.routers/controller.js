@@ -7,9 +7,13 @@ const init = (data) => {
                     return res.render('flats', {
                         context: flats,
                         username: req.params.username,
-                        date: req.params.date,
+                        startdate: req.params.startDate,
+                        endDate: req.params.endDate,
                         title: req.params.title,
                         content: req.params.content,
+                        vipstatus: req.params.vipstatus,
+                        location: req.params.location,
+                        neededMates: req.params.neededMates,
 
 
                     });
@@ -20,13 +24,21 @@ const init = (data) => {
         addFlat: (req, res) => {
             const username = req.body.username;
             const title = req.body.title;
-            const date = req.body.date;
             const content = req.body.content;
+            const startDate = req.body.startDate;
+            const endDate = req.body.endDate;
+            const vipstatus = req.body.vipstatus;
+            const location = req.body.location;
+            const neededMates = req.body.neededMates;
             return FlatsData.create({
                 username: username,
-                date: date,
+                startDate: startDate,
                 title: title,
                 content: content,
+                endDate: endDate,
+                vipstatus: vipstatus,
+                location: location,
+                neededMates: neededMates,
             })
                 .then((createdUser) => {
                     return res.redirect('/flats');
