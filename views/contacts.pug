@@ -4,7 +4,7 @@ block extraHeader
 block body-content
     #form-main
         #form-div
-            form#form1.form
+            form#form1.form(action='mailto:lilibabacheva@gmail.com', method='post', enctype='text/plain', role='form')
                 p.name
                     input#name.feedback-input(name='name', type='text', class='validate[required,custom[onlyLetter],length[0,100]]', placeholder='Name')
                 p.email
@@ -12,5 +12,5 @@ block body-content
                 p.text
                     textarea#comment.feedback-input(name='text', class='validate[required,length[6,300]]', placeholder='Comment')
                 .submit
-                    input#button-blue(type='submit', value='SEND')
+                    input#button-blue(type='submit', name='submit' value='Изпрати')
                     .ease

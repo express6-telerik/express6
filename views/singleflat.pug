@@ -1,0 +1,45 @@
+extends home
+body block-content
+    a.add-new-comment.btn.btn-primary(href='#/posts/{{_id}}/comment') Add comment
+    a.home-from-single-post.btn.btn-info.hidden-xs(href='#/home') Home
+    a.edit-post.btn.btn-primary(href='#/posts/{{_id}}/edit', id='edit-post-{{author.username}}') Edit
+    button.delete-post.btn.btn-danger(type='button', id='delete-post-{{author.username}}', data-toggle='modal', data-target='#myPostsModal') Delete
+    h3.main-heading-simple > {{title}}
+    // Modal for deleting posts
+    #myPostsModal.modal.fade(role='dialog')
+        .modal-dialog
+            // Modal content
+            .modal-content
+                .modal-header.bg-danger
+                    button.close(type='button', data-dismiss='modal') ×
+                    h4.modal-title Delete post
+                .modal-body
+                    strong The whole post with all comments in it will be deleted! Are you sure?
+                .modal-footer
+                    a#delete-post-final.btn.btn-danger(href='#/posts/{{_id}}/delete') Delete
+                    button.btn.btn-primary(type='button', data-dismiss='modal') Cancel
+    #single-post.panel.panel-default
+        header.panel-heading
+            h2.panel-title
+                | Author:
+                strong
+                    a(href='#/home/all/{{author.username}}') {{author.username}}
+            h4.createdate.hidden-xs
+                | Created:
+                span.date-block {{_kmd.ect}}
+        .panel-body
+            main.posts-content
+                article {{{content}}}
+        .panel-footer
+            footer.posts-footer
+                ul.nav.nav-pills(role='tablist')
+                    li.add-like-container.active(role='presentation')
+                        button.add-post-like.btn.btn-primary(id='{{_id}}')
+                            | Like
+                            span.badge {{likes}}
+                    li.comments-count.hidden-xs(role='presentation')
+                        | Comments
+                        span.badge {{comments.length}}
+                    li.category-info(role='presentation')
+                        span.btn.btn-warning
+                            a(href='#/home/{{category}}') {{category}}

@@ -41,14 +41,14 @@ class UsersData extends BaseData {
         return this.filterBy()
             .then((users) => {
                 for (let index = 0; index < users.length; index++) {
-                    if (users[index].username === username) {
+                    if (users.username === username) {
                         return {
                             valid: false,
                             msg: 'username is already taken',
                         };
                     }
 
-                    if (users[index].email === email) {
+                    if (users.email === email) {
                         return {
                             valid: false,
                             msg: 'email is already in use',
