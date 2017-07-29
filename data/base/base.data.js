@@ -38,6 +38,21 @@ class BaseMongoDbData {
             });
     }
 
+    getUserByUsername(username) {
+        const promise = new Promise((resolve, reject) => {
+            this.collection.findOne({
+                username,
+            }, (err, res) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(res);
+            });
+        });
+
+        return promise;
+    }
+
     findById(id) {
         return this.collection.findOne({
             _id: new ObjectID(id),

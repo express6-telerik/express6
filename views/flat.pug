@@ -1,0 +1,29 @@
+extends home
+block body-content
+    br
+    h1
+    | Квартира
+    if flats
+        .container
+            .row
+                .col-sm-4.col-md-4
+                    .post
+                        .post-img-content
+                            img.img-responsive(src='http://placehold.it/460x250/e67e22/ffffff&text=HTML5')
+                            span.post-title
+                                a(href='/flat/' + flats._id )
+                                    b #{flats.title}
+
+                                br
+                        .content
+                            .author
+                                | От:
+                                b #{flats.username}
+                                |  |
+                                time(datetime='2014-01-20') January 20th, 2014
+                            div
+                                p
+                                    | #{flats.content}
+                            div
+                                a.btn.btn-warning.btn-sm(href='/flat/' + flats.id ) Виж цялата обява
+        br

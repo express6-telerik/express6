@@ -24,6 +24,25 @@ const init = (data) => {
                     });
                 });
         },
+        getDetailedUser: (req, res) => {
+            const username = req.params.username;
+            data.users.getUserByUsername(username)
+                .then((user) => {
+                   return res.render('user/user-details', {
+                        result: {
+                            user: req.user,
+                            userDetails: user,
+                        },
+                    });
+                })
+                .catch(() => {
+                    return res.render('profile/user-not-found', {
+                        result: {
+                            user: req.user,
+                        },
+                    });
+                });
+        },
 
     };
 };

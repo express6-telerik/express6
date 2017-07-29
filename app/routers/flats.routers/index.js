@@ -15,6 +15,10 @@ const init = (app, data) => {
     app.post('/addflat', (req, res) => {
         return controller.addFlat(req, res);
     });
+
+    app.get('/flat/:id', (req, res) => {
+        return controller.filterBy(req, res);
+    });
 };
 
 module.exports = { init };

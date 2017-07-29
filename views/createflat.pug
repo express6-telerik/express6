@@ -9,6 +9,7 @@ block body-content
     .container
         .row.main
             .main-login.main-center
+                br
                 h2(class="form-register-heading")
                     | Добавяне на нова квартира:
 
@@ -18,7 +19,7 @@ block body-content
                     .cols-sm-10
                         .input-group
                             span.input-group-addon
-                                i.fa.fa-users.fa(aria-hidden='true')
+                                i.fa.fa-user.fa(aria-hidden='true')
                             input#username.form-control(type='text', name='username', readonly=true, value=user.username)
                 .form-group
                     label.cols-sm-2.control-label(for='title') Заглавие
@@ -32,35 +33,35 @@ block body-content
                     .cols-sm-6
                         .input-group
                             span.input-group-addon
-                                i.fa.fa-envelope.fa(aria-hidden='true')
+                                i.fa.fa-calendar.fa(aria-hidden='true')
                             input#startDate.form-control(type='text', name='startDate', placeholder="Дата")
                 .form-group
                     label.cols-sm-2.control-label(for='endDate') До дата
                     .cols-sm-6
                         .input-group
                             span.input-group-addon
-                                i.fa.fa-envelope.fa(aria-hidden='true')
+                                i.fa.fa-calendar.fa(aria-hidden='true')
                             input#endDate.form-control(type='text', name='endDate', placeholder="Дата")
                 .form-group
                     label.cols-sm-2.control-label(for='location') Квартал
                     .cols-sm-10
                         .input-group
                             span.input-group-addon
-                                i.fa.fa-envelope.fa(aria-hidden='true')
+                                i.fa.fa-map-marker.fa(aria-hidden='true')
                             input#location.form-control(type='text', name='location', placeholder="квартал")
                 .form-group
-                    label.cols-sm-2.control-label(for='content') Квартира за (брой съквартиранти):
+                    label.cols-sm-2.control-label(for='neededMates') Квартира за (брой съквартиранти):
                     .cols-sm-10
                         .input-group
                             span.input-group-addon
-                                i.fa.fa-lock.fa-lg(aria-hidden='true')
-                            input.scrollabletextbox(name='neededMates', placeholder='брой съквартиранти')
+                                i.fa.fa-users.fa-lg(aria-hidden='true')
+                            input#neededMates(name='neededMates', placeholder='брой съквартиранти')
                 .form-group
                     label.cols-sm-2.control-label(for='content') Съдържание:
                     .cols-sm-10
                         .input-group
                             span.input-group-addon
-                                i.fa.fa-lock.fa-lg(aria-hidden='true')
+                                i.fa.fa-keyboard-o.fa-lg(aria-hidden='true')
                             textarea#content.form-control(name='content', placeholder='Enter your content')
 
                 .form-group
@@ -73,6 +74,7 @@ block body-content
                 .form-group
                 button(class="btn btng btn-primary btn-block" type="submit")
                     | Добави квартира
+                br
 block custom-scripts
     script.
         function readURL(input, tag) {

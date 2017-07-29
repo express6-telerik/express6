@@ -16,6 +16,11 @@ const init = (app, data) => {
         function(req, res) {
             res.render('home');
         });
+
+    app.get('/profile/user-details', (req, res) =>{
+        return UserController.getDetailedUser(req, res);
+    });
+
     app.get('/profile/:id', (req, res) => {
         if (req.isAuthenticated()) {
             res.render('user/profile', { user: req.user });

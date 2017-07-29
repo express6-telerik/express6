@@ -27,6 +27,6 @@ li {
 a, u {
     text-decoration: none !important;
 }
-textarea {
+#content {
     height: 250px;
 }

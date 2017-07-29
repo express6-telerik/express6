@@ -7,7 +7,7 @@ const init = (data) => {
                     return res.render('flats', {
                         context: flats,
                         username: req.params.username,
-                        startdate: req.params.startDate,
+                        startDate: req.params.startDate,
                         endDate: req.params.endDate,
                         title: req.params.title,
                         content: req.params.content,
@@ -40,7 +40,7 @@ const init = (data) => {
                 location: location,
                 neededMates: neededMates,
             })
-                .then((createdUser) => {
+                .then((createdFlat) => {
                     return res.redirect('/flats');
                 });
             // });
@@ -52,6 +52,14 @@ const init = (data) => {
             } else {
                 res.redirect('/sign-in');
             }
+        },
+        filterBy: (req, res) => {
+            return data.flats.filterBy({ id: req.params._id })
+                .then((flats) => {
+                    return res.render('flat');
+                }).catch((err) => {
+                    console.error(err);
+                });
         },
     };
 };

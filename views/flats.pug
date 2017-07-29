@@ -13,7 +13,9 @@ block body-content
                         .post-img-content
                             img.img-responsive(src='http://placehold.it/460x250/e67e22/ffffff&text=HTML5')
                             span.post-title
-                                b #{flat.title}
+                                a(href='/flat/' + flat._id )
+                                    b #{flat.title}
+
                                 br
                         .content
                             .author
@@ -25,7 +27,7 @@ block body-content
                                  p
                                      | #{flat.content}
                             div
-                                a.btn.btn-warning.btn-sm(href='http://www.jquery2dotnet.com/2014/01/jquery-highlight-table-row-and-column.html') Read more
+                                a.btn.btn-warning.btn-sm(href='/flat/' + flat._id ) Виж цялата обява
         br
 
     //        .col-sm-4.col-md-4
