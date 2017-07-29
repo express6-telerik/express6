@@ -21,7 +21,7 @@ block body-content
                                 i.fa.fa-users.fa(aria-hidden='true')
                             input#username.form-control(type='text', name='username', readonly=true, value=user.username)
                 .form-group
-                    label.cols-sm-2.control-label(for='title') Име
+                    label.cols-sm-2.control-label(for='title') Заглавие
                     .cols-sm-10
                         .input-group
                             span.input-group-addon
@@ -29,18 +29,18 @@ block body-content
                             input#title.form-control(type='text', name='title', placeholder="Заглавие")
                 .form-group
                     label.cols-sm-2.control-label(for='startDate') От дата
-                    .cols-sm-10
+                    .cols-sm-6
                         .input-group
                             span.input-group-addon
                                 i.fa.fa-envelope.fa(aria-hidden='true')
-                            input#startDate.form-control(type='text', name='startDate', readonly=true, placeholder="Дата")
+                            input#startDate.form-control(type='text', name='startDate', placeholder="Дата")
                 .form-group
                     label.cols-sm-2.control-label(for='endDate') До дата
-                    .cols-sm-10
+                    .cols-sm-6
                         .input-group
                             span.input-group-addon
                                 i.fa.fa-envelope.fa(aria-hidden='true')
-                            input#endDate.form-control(type='text', name='endDate', readonly=true, placeholder="Дата")
+                            input#endDate.form-control(type='text', name='endDate', placeholder="Дата")
                 .form-group
                     label.cols-sm-2.control-label(for='location') Квартал
                     .cols-sm-10
@@ -61,7 +61,7 @@ block body-content
                         .input-group
                             span.input-group-addon
                                 i.fa.fa-lock.fa-lg(aria-hidden='true')
-                            input#content.form-control(type='text', name='content', placeholder='Enter your content')
+                            textarea#content.form-control(name='content', placeholder='Enter your content')
 
                 .form-group
                     input(type='file', onchange='readURL(this, #img);')

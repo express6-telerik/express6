@@ -27,3 +27,6 @@ li {
 a, u {
     text-decoration: none !important;
 }
+textarea {
+    height: 250px;
+}
