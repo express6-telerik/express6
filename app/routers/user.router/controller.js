@@ -17,7 +17,7 @@ const init = (data) => {
                         username: username,
                         password: password,
                         email: email,
-                        name: '',
+                        name: name,
                     })
                     .then((createdUser) => {
                         return res.render('user/sign-in');
