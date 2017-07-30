@@ -12,6 +12,7 @@ const init = (data) => {
                         return res.render('user/sign-up',
                             { msg: validator.msg });
                     }
+                    console.log(username);
 
                     return UsersData.create({
                         username: username,

@@ -1,41 +1,34 @@
 extends home
 block extraHeader
-
 block body-content
-    .layer
     br
     h1
     | Квартири, очакващи своите хора
     br
-    .center
     each flat in context
-         -var content= flat.content
-            .container
-                .row
-                    .col-sm-4.col-md-4.center-block
-                        .post
-                            .post-img-content
-                                img.img-responsive(src='http://placehold.it/460x250/e67e22/ffffff&text=HTML5')
-                                span.post-title
-                                    a(href='/flat/' + flat._id )
-                                        b #{flat.title}
+        .container
+            .row
+                .col-sm-4.col-md-4
+                    .post
+                        .post-img-content
+                            img.img-responsive(src='http://placehold.it/460x250/e67e22/ffffff&text=HTML5')
+                            span.post-title
+                                a(href='/flat/' + flat._id )
+                                    b #{flat.title}
 
-                                    br
-                            .content
-                                .author
-                                    | От:
-                                    b  #{flat.username}
-                                    |     |
-                                    time(datetime='#{flat.startDate}')   Начална дата: #{flat.startDate}
-                                    |
-                                    |  | В:
-                                    b  #{flat.location}
-                                    |
-                                div
-                                    p=(content.substring(0,100))
-                                div
-                                    a.btn.btn-warning.btn-sm(href='/flat/' + flat._id ) Виж цялата обява
-            br
+                                br
+                        .content
+                            .author
+                                | От:
+                                b #{flat.username}
+                                |  |
+                                time(datetime='2014-01-20') January 20th, 2014
+                            div
+                                 p
+                                     | #{flat.content}
+                            div
+                                a.btn.btn-warning.btn-sm(href='/flat/' + flat._id ) Виж цялата обява
+        br
 
     //        .col-sm-4.col-md-4
     //            .post

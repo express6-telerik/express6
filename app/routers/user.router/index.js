@@ -10,7 +10,7 @@ const init = (app, data) => {
     app.post('/sign-in', passport.authenticate('local',
         {
             successRedirect: '/',
-            failureRedirect: '/404',
+            failureRedirect: '/errorpage',
             failureFlash: true,
         }),
         function(req, res) {

@@ -44,7 +44,14 @@ class UsersData extends BaseData {
                     if (users.username === username) {
                         return {
                             valid: false,
-                             msg: 'username is already taken',
+                            msg: 'username is already taken',
+                        };
+                    }
+
+                    if (users.email === email) {
+                        return {
+                            valid: false,
+                            msg: 'email is already in use',
                         };
                     }
                 }
