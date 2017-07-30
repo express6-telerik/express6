@@ -21,14 +21,11 @@ const init = (app, data) => {
         return UserController.getDetailedUser(req, res);
     });
 
-    app.get('/profile/:id', (req, res) => {
-        if (req.isAuthenticated()) {
-            res.render('user/profile', { user: req.user });
-        } else {
-            res.render('errorpage', { notLogedIn: 'You are not signed-in' });
-        }
+    app.get('/profile/:username', (req, res) => {
+        return UserController.getDetailedUser(req, res);
     });
+
    // app.get('/profile/user/:id', UserController.getPublicProfile);
-   // app.post('/profile/:id/update', UserController.updateProfile);
+    //app.post('/profile/:id/update', UserController.updateProfile);
 };
 module.exports = { init };

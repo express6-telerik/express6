@@ -25,18 +25,20 @@ const init = (data) => {
                 });
         },
         getDetailedUser: (req, res) => {
+            console.log(req);
             const username = req.params.username;
+            console.log(username);
             data.users.getUserByUsername(username)
                 .then((user) => {
                    return res.render('user/user-details', {
                         result: {
-                            user: req.user,
+                            user: user,
                             userDetails: user,
                         },
                     });
                 })
                 .catch(() => {
-                    return res.render('profile/user-not-found', {
+                    return res.render('errorpage', {
                         result: {
                             user: req.user,
                         },

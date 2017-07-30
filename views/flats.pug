@@ -24,7 +24,8 @@ block body-content
                         .content
                             .author
                                 | От:
-                                b  #{flat.username}
+                                a(href='/profile/'+ flat.username)
+                                    b  #{flat.username}
                                 |     |
                                 time(datetime='#{flat.startDate}')   Начална дата: #{flat.startDate}
                                 |

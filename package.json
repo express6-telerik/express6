@@ -22,6 +22,7 @@
     "express-session": "^1.15.4",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1",
+    "ig": "0.0.5",
     "jquery": "^3.2.1",
     "jquery-ui": "^1.12.1",
     "lodash": "^4.17.4",
@@ -31,7 +32,8 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "pug": "^2.0.0-rc.2",
-    "serve-favicon": "^2.4.3"
+    "serve-favicon": "^2.4.3",
+    "socket.io": "^2.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

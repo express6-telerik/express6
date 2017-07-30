@@ -2,6 +2,7 @@ const init = (app, data) => {
     require('./user.router/').init(app, data);
     require('./flats.routers').init(app, data);
 
+
   //  const ThreadsController = require('./flats.router/controller').init(data);
 
     app.get('/', (req, res) => {
@@ -35,6 +36,9 @@ const init = (app, data) => {
     app.get('/logout', (req, res) => {
         req.logout();
         res.redirect('/');
+    });
+    app.get('/chat', (req, res) => {
+        res.render('chat');
     });
 };
 

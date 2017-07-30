@@ -13,7 +13,7 @@ block body-content
                 h2(class="form-register-heading")
                     | Добавяне на нова квартира:
 
-            form(action="/addflat" class="form-addflat" method="post")
+            form(action="/addflat" class="form-addflat" method="post" enctype="multipart/form-data")
                 .form-group
                     label.cols-sm-2.control-label(for='username') Username
                     .cols-sm-10

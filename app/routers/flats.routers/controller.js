@@ -6,6 +6,7 @@ const init = (data) => {
                 .then((flats) => {
                     return res.render('flats', {
                         context: flats,
+                        userid: req.params.userid,
                         username: req.params.username,
                         startDate: req.params.startDate,
                         endDate: req.params.endDate,
@@ -25,6 +26,7 @@ const init = (data) => {
         },
         addFlat: (req, res) => {
             const username = req.body.username;
+            const userid = req.body.userid;
             const title = req.body.title;
             const content = req.body.content;
             const startDate = req.body.startDate;
@@ -35,6 +37,7 @@ const init = (data) => {
             const price = req.body.price;
            // const img = req.body.img;
             return FlatsData.create({
+                userid: userid,
                 username: username,
                 startDate: startDate,
                 title: title,
