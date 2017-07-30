@@ -1,0 +1,32 @@
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+</head>
+<body>
+    <ul id="messages"></ul>
+    <input id="msg" type = "text"/>
+    <button id="sendBtn" onclick="test()">Send</button>
+
+    <script>
+       function test() {
+        var socket = io();
+        let mess = document.getElementById("msg").value;
+        console.log(mess)
+        socket.emit('msg', mess );
+        socket.on('msg', mess => {
+            let li = $('<li>').text(mess)
+            $('messages').append(li)
+        })
+        // socket.on(mess, function(mssg){
+        // var ul = document.getElementById("messages");
+        // var li = document.createElement("li");
+        // ul.appendChild(document.createTextNode(mssg));
+        //  ul.appendChild(li);
+        //   window.scrollTo(0, document.body.scrollHeight);
+        // });
+      }
+        
+    </script>
+  </body>
+</html>
