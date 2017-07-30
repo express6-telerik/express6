@@ -27,7 +27,13 @@ const init = (data) => {
     app.use('/libs',
         express.static(
             path.join(__dirname, '../node_modules')));
-
+    const io = require('socket.io')(3080);
+    io.sockets.on('connection', function(socket) {
+        socket.emit('message', { message: 'welcome to the chat' });
+        socket.on('send', function(data1) {
+            io.sockets.emit('message', data1);
+        });
+    });
     require('./routers').init(app, data);
 
     return Promise.resolve(app);
