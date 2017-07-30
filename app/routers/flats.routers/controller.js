@@ -53,12 +53,21 @@ const init = (data) => {
                 res.redirect('/sign-in');
             }
         },
-        filterBy: (req, res) => {
-            return data.flats.filterBy({ id: req.params._id })
-                .then((flats) => {
-                    return res.render('flat');
-                }).catch((err) => {
-                    console.error(err);
+        getSingleFlat: (req, res) => {
+            const id = req.params.toString();
+            console.log(req.params);
+            console.log(id);
+            data.flats.findById(id)
+                .then((flat) => {
+                console.log(flat);
+                        result: {
+                            flat: req.flat,
+                            flatDetails: flat,
+                        },
+                    });
+                })
+                .catch(() => {
+                    return res.render('errorpage');
                 });
         },
     };

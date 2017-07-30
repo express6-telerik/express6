@@ -54,24 +54,18 @@ class BaseMongoDbData {
     }
 
     findById(id) {
-        return this.collection.findOne({
-            _id: new ObjectID(id),
-        });
-    }
-
-    findOrCreateBy(props) {
-        return this.filterBy(props)
-            .then(([model]) => {
-                if (!model) {
-                    model = {};
-                    return this.collection.insert(model)
-                        .then(() => {
-                            return model;
-                        });
+        const promise = new Promise((resolve, reject) => {
+            this.collection.findOne({
+                id,
+            }, (err, res) => {
+                if (err) {
+                    reject(err);
                 }
-
-                return model;
+                resolve(res);
             });
+        });
+
+        return promise;
     }
 
     updateById(model) {
