@@ -1,6 +1,6 @@
 class Flat {
     constructor(title, username, startDate, endDate,
-                location, content, neededMates, vipstatus, photos) {
+                location, content, neededMates, price, vipstatus, photos) {
         this.title = title;
         this.username = username;
         this.date = startDate;
@@ -9,6 +9,7 @@ class Flat {
         this.content = content;
         this.neededMates = neededMates;
         this.vipstatus = vipstatus;
+        this.price = price;
         this.photos = [];
     }
 }

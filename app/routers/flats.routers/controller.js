@@ -14,6 +14,7 @@ const init = (data) => {
                         vipstatus: req.params.vipstatus,
                         location: req.params.location,
                         neededMates: req.params.neededMates,
+                        price: req.params.price,
 
 
                     });
@@ -30,6 +31,7 @@ const init = (data) => {
             const vipstatus = req.body.vipstatus;
             const location = req.body.location;
             const neededMates = req.body.neededMates;
+            const price = req.body.price;
             return FlatsData.create({
                 username: username,
                 startDate: startDate,
@@ -39,6 +41,7 @@ const init = (data) => {
                 vipstatus: vipstatus,
                 location: location,
                 neededMates: neededMates,
+                price: price,
             })
                 .then((createdFlat) => {
                     return res.redirect('/flats');
