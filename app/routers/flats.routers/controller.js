@@ -54,12 +54,14 @@ const init = (data) => {
             }
         },
         filterBy: (req, res) => {
-            return data.flats.filterBy({ id: req.params._id })
-                .then((flats) => {
-                    return res.render('flat');
-                }).catch((err) => {
-                    console.error(err);
-                });
+            console.log(req.params.id);
+                return FlatsData.findById(req.params.id)
+                    .then((flat) => {
+                    console.log(FlatsData);
+                        return res.render('flat',
+                            { flat: flat, id: flat.id, title: flat.title,
+                                username: flat.username, content: flat.content });
+                    });
         },
     };
 };
