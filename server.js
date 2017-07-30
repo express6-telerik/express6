@@ -1,16 +1,19 @@
-const async = () => {
-    return Promise.resolve();
-};
+/* eslint-disable no-console */
 
-const config = require('./config');
 
-async()
-    .then(() => require('./db').init(config.connectionString))
+const ServerConfig = require('./config/');
+const socket = require('socket.io');
+Promise.resolve()
+    .then(() => require('./db').init(ServerConfig.connectionString))
     .then((db) => require('./data').init(db))
     .then((data) => require('./app').init(data))
     .then((app) => {
-        app.listen(config.port, () =>
-            console.log(`Listen port: ${config.port}`));
+        const server = app.listen(ServerConfig.port, () =>
+            console.log(`Server is running at :${ServerConfig.port}`));
+        const io = socket(server);
+        io.on('connection', (websocket) => {
+            console.log('stana');
+        });
     })
     .catch((err) => {
         console.log(err);
