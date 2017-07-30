@@ -15,6 +15,7 @@ const init = (data) => {
                         location: req.params.location,
                         neededMates: req.params.neededMates,
                         price: req.params.price,
+                        img: req.params.img,
 
 
                     });
@@ -32,6 +33,7 @@ const init = (data) => {
             const location = req.body.location;
             const neededMates = req.body.neededMates;
             const price = req.body.price;
+           // const img = req.body.img;
             return FlatsData.create({
                 username: username,
                 startDate: startDate,
@@ -42,11 +44,11 @@ const init = (data) => {
                 location: location,
                 neededMates: neededMates,
                 price: price,
+                img: 'default.jpg',
             })
                 .then((createdFlat) => {
                     return res.redirect('/flats');
                 });
-            // });
         },
         loggedIn: (req, res, next) => {
             if (req.user) {
@@ -63,7 +65,8 @@ const init = (data) => {
                     console.log(FlatsData);
                         return res.render('flat',
                             { flat: flat, id: flat.id, title: flat.title,
-                                username: flat.username, content: flat.content });
+                                username: flat.username,
+                                content: flat.content });
                     });
         },
     };

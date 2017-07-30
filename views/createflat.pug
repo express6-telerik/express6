@@ -72,8 +72,8 @@ block body-content
                             textarea#content.form-control(name='content', placeholder='Enter your content')
 
                 .form-group
-                    input(type='file', onchange='readURL(this, #img);')
-                    img#img()
+                    input#img(type='file')
+                    img#img1
                     input(type='file', onchange='readURL(this, #img2);')
                     img#img2()
                     input(type='file', onchange='readURL(this, #img3);')
