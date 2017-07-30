@@ -17,7 +17,7 @@ const init = (app, data) => {
     });
 
     app.get('/flat/:id', (req, res) => {
-        return controller.getSingleFlat(req, res);
+        return controller.filterBy(req, res);
     });
 };
 

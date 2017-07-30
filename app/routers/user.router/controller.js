@@ -5,7 +5,6 @@ const init = (data) => {
             const username = req.body.username;
             const password = req.body.password;
             const email = req.body.email;
-            const name = req.body.name;
             UsersData.checkForFreeUsername(username, password)
                 .then((validator) => {
                     if (!(validator.valid)) {
@@ -18,7 +17,7 @@ const init = (data) => {
                         username: username,
                         password: password,
                         email: email,
-                        name: name,
+                        name: '',
                     })
                     .then((createdUser) => {
                         return res.render('user/sign-in');
@@ -27,7 +26,6 @@ const init = (data) => {
         },
         getDetailedUser: (req, res) => {
             const username = req.params.username;
-           // console.log(req.params);
             data.users.getUserByUsername(username)
                 .then((user) => {
                    return res.render('user/user-details', {
