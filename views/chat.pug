@@ -7,17 +7,27 @@ block body-content
     br
     br
     br
+    label(for='name')  Избери си име:
+    input#name(type='text')
+    label(for='msg')  Съобщение:
     input#msg(type='text')
-    button#sendBtn(onclick='test()') Send
+    button#sendBtn(onclick='sendMessage()') Send
+
     ul#messages
 block custom-scripts
     script.
-        function test() {
+        function setName(){
+
+        return name;
+        }
+        function sendMessage() {
         var socket = io();
         let mess = document.getElementById("msg").value;
+        let name = document.getElementById("name").value;
         console.log(mess);
         socket.emit('msg', mess);
-        let li = $(`<li>`).text(moment(Date.now()).format('HH:mm:ss') + ' || ' + mess);
+
+        let li = $(`<li>`).text(name +' '+ moment(Date.now()).format('HH:mm:ss') + ' || ' + mess );
         $('#messages').append(li);
                 //	$('#messages').append($('<li></li>').text("5"));
                 // .on('msg', mess => {

@@ -2,7 +2,7 @@ body {
     background: url('../imgs/sofa-wallpaper.jpg');
     opacity: 0.8;
     background-size: cover;
-    color: white;
+    color: black;
     font-weight: bold;
     position: relative;
 }
@@ -29,4 +29,11 @@ a, u {
 }
 #content {
     height: 250px;
+}
+input, textarea, button {
+    color: black;
+}
+
+body li{
+    color: black;
 }

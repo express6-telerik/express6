@@ -8,14 +8,13 @@ const path = require('path');
 const init = (data) => {
    // const http = require('http');
     const app = express();
-  
+
 
     const server = require('http').createServer(app);
     const io = require('socket.io')(server);
 
-
     app.get('/chat', (req, res) => {
-    res.render('chat')
+   return res.render('chat', {chat: req });
     });
 
 app.use(favicon(path.join(__dirname, '../public', '/imgs/fav.ico')));
