@@ -69,7 +69,7 @@ body(data-spy='scroll', data-target='.navbar', data-offset='50')
                     ul.collapse.navbar-collapse(id='bs-example-navbar-collapse-2')
                         if user
                             li
-                                a(href ='/profile/user-details') #{user.username}
+                                a(href ='/profile/'+user.username) #{user.username}
                             li
                                 a(href = '/logout') Изход
 

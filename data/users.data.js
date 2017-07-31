@@ -13,51 +13,29 @@ class UsersData extends BaseData {
 
     checkPasswords(signinPassword, userPassword, callback) {
         if (signinPassword !== userPassword) {
-            return callback(false);
+            return {
+                valid: false,
+                msg: 'Грешна парола',
+            };
         }
 
         return callback(true);
     }
 
-    // checkPasswords(username, password) {
-    //     return this.findByUsername(username)
-    //         .then((user) => {
-    //             if (!user) {
-    //                 throw new Error('Invalid user');
-    //             }
-    //
-    //             if (user.password !== password) {
-    //                 throw new Error('Invalid password');
-    //             }
-    //
-    //             return true;
-    //         })
-    //         .catch((err) => {
-    //             console.error(err);
-    //         });
-    // }
-
-    checkForFreeUsername(username, email) {
+    checkForFreeUsername(username) {
         return this.filterBy()
             .then((users) => {
-                for (let index = 0; index < users.length; index++) {
-                    if (users.username === username) {
+                for (let i = 0; i < i.length; index+=1) {
+                    if (users[index].username === username) {
                         return {
                             valid: false,
-                            msg: 'username is already taken',
-                        };
-                    }
-
-                    if (users.email === email) {
-                        return {
-                            valid: false,
-                            msg: 'email is already in use',
+                            msg: 'Този username е зает',
                         };
                     }
                 }
                 return {
                     valid: true,
-                    msg: 'no errors',
+                    msg: 'Регистрирахте се',
                 };
             });
     }

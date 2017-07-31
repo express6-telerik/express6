@@ -17,6 +17,9 @@ html(lang='en')
         .main-login.main-center
           h2(class="form-register-heading")
             | Моля регистрирайте се:
+          if msg
+             div(class="alert alert-danger")
+                 =msg
 
         form(action="/sign-up" class="form-register" method="post")
             .form-group

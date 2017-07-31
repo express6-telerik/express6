@@ -12,14 +12,17 @@ const init = (data) => {
 
     const server = require('http').createServer(app);
     const io = require('socket.io')(server);
-
+    app.use(require('connect-flash')());
+    app.use(function (req, res, next) {
+        res.locals.messages = require('express-messages')(req, res);
+        next();
+    });
     app.get('/chat', (req, res) => {
-   return res.render('chat', { chat: req });
+    return res.render('chat', { chat: req });
     });
 
-app.use(favicon(path.join(__dirname, '../public', '/imgs/fav.ico')));
-  //  const io = require('socket.io')(http);
-    //  config
+    app.use(favicon(path.join(__dirname, '../public', '/imgs/fav.ico')));
+
     require('./config').init(app, data);
     require('./auth').init(app, data);
     app.use('/public', express.static('static'));
