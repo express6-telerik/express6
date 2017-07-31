@@ -17,6 +17,33 @@ describe('user.data methods tests:', () => {
     };
     let data = null;
     let users = null;
+    describe('findByUsername method test:', () => {
+        beforeEach(() => {
+            users = [{
+                username: 'test',
+            }];
+
+            data = new UserData(db);
+
+            sinon.stub(data, 'filterBy')
+                .callsFake(() => {
+                    return Promise.resolve(users);
+                });
+        });
+
+        afterEach(() => {
+            data.filterBy.restore();
+        });
+
+
+        it('expect method to find name', () => {
+            return data.findByUsername('test')
+                .then((models) => {
+                    expect(models).to.deep.equal({username: 'test'});
+                });
+
+        });
+    });
 
     describe('checkForFreeUsername method test:', () => {
         beforeEach(() => {
@@ -36,23 +63,16 @@ describe('user.data methods tests:', () => {
             data.filterBy.restore();
         });
 
-        it('expect method to return: username is taken', () => {
-            return data.checkForFreeUsername('test')
-                .then((validator) => {
-                    expect(validator.msg).to.eql('Този username е зает');
-                });
-        });
-
 
         it('expect method to return: Регистрирахте се', () => {
-            return data.checkForFreeUsername('test1')
+            return data.checkForFreeUsername('test1', 'test1')
                 .then((validator) => {
                     expect(validator.msg).to.eql('Регистрирахте се');
                 });
         });
     });
 
-    describe('checkPasswords method test:', () => {
+       describe('checkPasswords method test:', () => {
         beforeEach(() => {
             data = new UserData(db);
         });
@@ -65,8 +85,9 @@ describe('user.data methods tests:', () => {
         });
 
         it('excpect checkPasswords to return false', () => {
-             data.checkPasswords('test','test1') 
-            expect(msg).to.eql('Грешна парола');
+             const result = data.
+            checkPasswords('test', 'test1', callback);
+            expect(result).to.eql(false);
         });
      });
 });

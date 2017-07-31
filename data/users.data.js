@@ -13,10 +13,7 @@ class UsersData extends BaseData {
 
     checkPasswords(signinPassword, userPassword, callback) {
         if (signinPassword !== userPassword) {
-            return {
-                valid: false,
-                msg: 'Грешна парола',
-            };
+           return callback(false);
         }
 
         return callback(true);
