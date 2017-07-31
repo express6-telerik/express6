@@ -15,7 +15,7 @@ block body-content
                 .col-sm-4.col-md-4.center-block
                     .post
                         .post-img-content
-                            img.img-responsive(src='/static/imgs/flats/'+flat.img)
+                            img.img-responsive(src=flat.img)
                             span.post-title
                                 a(href='/flat/' + flat._id )
                                     b #{flat.title}

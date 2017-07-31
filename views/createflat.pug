@@ -13,7 +13,7 @@ block body-content
                 h2(class="form-register-heading")
                     | Добавяне на нова квартира:
 
-            form(action="/addflat" class="form-addflat" method="post" enctype="multipart/form-data")
+            form(action="/addflat" class="form-addflat" method="post")
                 .form-group
                     label.cols-sm-2.control-label(for='username') Username
                     .cols-sm-10
@@ -72,12 +72,13 @@ block body-content
                             textarea#content.form-control(name='content', placeholder='Enter your content')
 
                 .form-group
-                    input#img(type='file')
-                    img#img1
-                    input(type='file', onchange='readURL(this, #img2);')
-                    img#img2()
-                    input(type='file', onchange='readURL(this, #img3);')
-                    img#img3()
+                    label.cols-sm-2.control-label(for='img') Снимка:
+                    .cols-sm-10
+                        .input-group
+                            span.input-group-addon
+                                i.fa.fa-keyboard-o.fa-lg(aria-hidden='true')
+                            input#img.form-control(name='img', placeholder='Enter your згдшд')
+
                 .form-group
                 button(class="btn btng btn-primary btn-block" type="submit")
                     | Добави квартира

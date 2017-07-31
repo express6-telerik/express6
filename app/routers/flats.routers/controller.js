@@ -28,13 +28,14 @@ const init = (data) => {
             const username = req.body.username;
             const userid = req.body.userid;
             const title = req.body.title;
-            const content = req.body.content;
+            const content = req.body.content || "";
             const startDate = req.body.startDate;
             const endDate = req.body.endDate;
             const vipstatus = req.body.vipstatus;
             const location = req.body.location;
             const neededMates = req.body.neededMates;
             const price = req.body.price;
+            const img = req.body.img || '/static/imgs/flats/default.jpg';
            // const img = req.body.img;
             return FlatsData.create({
                 userid: userid,
@@ -47,7 +48,7 @@ const init = (data) => {
                 location: location,
                 neededMates: neededMates,
                 price: price,
-                img: 'default.jpg',
+                img: img,
             })
                 .then((createdFlat) => {
                     return res.redirect('/flats');
