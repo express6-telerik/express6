@@ -14,7 +14,7 @@ const init = (data) => {
     const io = require('socket.io')(server);
 
     app.get('/chat', (req, res) => {
-   return res.render('chat', {chat: req });
+   return res.render('chat', { chat: req });
     });
 
 app.use(favicon(path.join(__dirname, '../public', '/imgs/fav.ico')));

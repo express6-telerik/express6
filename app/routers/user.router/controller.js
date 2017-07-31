@@ -5,6 +5,7 @@ const init = (data) => {
             const username = req.body.username;
             const password = req.body.password;
             const email = req.body.email;
+            const name = req.body.name;
             UsersData.checkForFreeUsername(username, password)
                 .then((validator) => {
                     if (!(validator.valid)) {

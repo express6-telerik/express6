@@ -28,7 +28,7 @@ const init = (data) => {
             const username = req.body.username;
             const userid = req.body.userid;
             const title = req.body.title;
-            const content = req.body.content || "";
+            const content = req.body.content || '';
             const startDate = req.body.startDate;
             const endDate = req.body.endDate;
             const vipstatus = req.body.vipstatus;

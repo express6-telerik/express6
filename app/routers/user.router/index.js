@@ -10,22 +10,19 @@ const init = (app, data) => {
     app.post('/sign-in', passport.authenticate('local',
         {
             successRedirect: '/',
-            failureRedirect: '/errorpage',
+            failureRedirect: '/404',
             failureFlash: true,
         }),
         function(req, res) {
             res.render('home');
         });
 
-    app.get('/profile/user-details', (req, res) =>{
-        return UserController.getDetailedUser(req, res);
-    });
 
     app.get('/profile/:username', (req, res) => {
         return UserController.getDetailedUser(req, res);
     });
 
    // app.get('/profile/user/:id', UserController.getPublicProfile);
-    //app.post('/profile/:id/update', UserController.updateProfile);
+    // app.post('/profile/:id/update', UserController.updateProfile);
 };
 module.exports = { init };

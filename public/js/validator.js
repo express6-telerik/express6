@@ -1,61 +1,70 @@
-function validateString(str, min, max, chars) {
-    if (typeof str !== 'string' || str.length < min || str.length > max) {
-        return {
-            message: `Invalid username: Length must be between ${min} and ${max}`,
-        };
-    }
-    if (chars) {
-        str = str.split('');
-        if (str.some(function(char) {
-                return chars.indexOf(char) < 0;
-            })) {
-            return {
-                message: `Invalid username: Chars can be ${chars}`,
-            };
+const validator = {
+    validateTypeOf: (value, property, type) => {
+        if (typeof value !== type) {
+            throw new Error(property + ' is not of type ' + type);
         }
-    }
-}
+    },
+    validateIfEmptyString: (value, property) => {
+        if (value === '') {
+            throw new Error(property + ' is Empty');
+        }
+    },
+    validateIfNumber: (value, property) => {
+        if (Number.isNaN(Number(value))) {
+            throw new Error(property + ' is not a Number');
+        }
+    },
+    validateImageExtension: (image) => {
+        if (!image || image.length === 0) {
+            throw new Error('Invalid image length');
+        }
 
-function validateEmail(email) {
-    if (!email || email.length === 0) {
-        return {
-            message: 'Invalid email: Email cannot be empty',
-        };
-    }
-    // copied from http://emailregex.com/
-    const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (!pattern.test(email)) {
-        return {
-            message: 'Invalid email: Please use name@url.ext pattern',
-        };
-    }
-}
+        const pattern = /\.(jpe?g|png|gif|bmp)$/;
 
-function validateUrl(url) {
-    if (!url || url.length === 0) {
-        return;
-    }
-    // copied from http://stackoverflow.com/questions/5717093/check-if-a-javascript-string-is-an-url#answer-5717133
-    const pattern = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/;
-    if (!pattern.test(url)) {
-        return {
-            message: 'Invalid url',
-        };
-    }
-}
+        if (!pattern.test(image)) {
+            throw new Error('Invalid extension: Please upload image with correct extension: Only JPG, PNG, Gif and BMP is allowed');
+        }
+    },
+    validateUrl: (url) => {
+        if (!url || url.length === 0) {
+            throw new Error('Invalid url length');
+        }
+        // copied from http://stackoverflow.com/questions/5717093/check-if-a-javascript-string-is-an-url#answer-5717133
+        const pattern = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/;
 
-function validatePassword(password) {
-    if (typeof password !== 'string' || password.length === 0) {
-        const message = 'Invalid password: Password cannot be empty!';
-        return {
-            message,
-        };
-    }
-}
-
-export {
-    validateString,
-    validateEmail,
-    validateUrl,
-    validatePassword,
+        if (!pattern.test(url)) {
+            throw new Error('Invalid url');
+        }
+    },
+    validateIfUndefinedOrNull: (value, property) => {
+        if (typeof value === 'undefined' || value === null) {
+            throw new Error(property + ' is undefined or null');
+        }
+    },
+    validateEmail: (email) => {
+        const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (!regex.test(email)) {
+            throw new Error('Invalid Email');
+        }
+    },
+    validatePhone: (phone) => {
+        const regex = /^\(?([+0-9]{0,5}[-. ]*)\)?([0-9]+)[-. ]?([0-9]+)$/;
+        if (!regex.test(phone)) {
+            throw new Error('Invalid Phone, e.g. formats +359-888-121212 or 0888 121212');
+        }
+    },
+    validatePassword: (password) => {
+        const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$/;
+        if (!regex.test(password)) {
+            throw new Error('Password has to be Minimum 4 characters at least 1 Alphabet and 1 Number');
+        }
+    },
+    validateUsername: (username) => {
+        const regex = /^[A-Za-z0-9_-]*[A-Za-z0-9][A-Za-z0-9_-]{3,}$/;
+        if (!regex.test(username)) {
+            throw new Error('Username must be at least 4 symbols and all should be valid');
+        }
+    },
 };
+
+module.exports = { validator };

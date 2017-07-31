@@ -35,7 +35,8 @@ const init = (app, data) => {
 
     app.get('/logout', (req, res) => {
         req.logout();
-        res.redirect('/');
+        req.session.destroy(function (err) {
+            res.redirect('/')}); //Inside a callback… bulletproof!
     });
     // app.get('/chat', (req, res) => {
     //     res.render('chat');
