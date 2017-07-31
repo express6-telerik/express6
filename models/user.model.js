@@ -5,6 +5,7 @@ class User {
         this.email = email;
         this.name = name;
     }
+
 }
 
 module.exports = User;

@@ -59,27 +59,6 @@ class BaseMongoDbData {
         });
     }
 
-    findOrCreateBy(props) {
-        return this.filterBy(props)
-            .then(([model]) => {
-                if (!model) {
-                    model = {};
-                    return this.collection.insert(model)
-                        .then(() => {
-                            return model;
-                        });
-                }
-
-                return model;
-            });
-    }
-
-    updateById(model) {
-        return this.collection.updateOne({
-            _id: model._id,
-        }, model);
-    }
-
     _isModelValid(model) {
         if ('undefined' === typeof this.validator ||
             'function' !== typeof this.validator.isValid) {
