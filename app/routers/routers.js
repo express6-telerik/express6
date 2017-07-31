@@ -37,9 +37,9 @@ const init = (app, data) => {
         req.logout();
         res.redirect('/');
     });
-    app.get('/chat', (req, res) => {
-        res.render('chat');
-    });
+    // app.get('/chat', (req, res) => {
+    //     res.render('chat');
+    // });
 };
 
 module.exports = { init };

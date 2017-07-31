@@ -15,7 +15,7 @@ const init = (data) => {
 
 
     app.get('/chat', (req, res) => {
-    res.sendFile(path.join(__dirname, './chat.html'));
+    res.render('chat')
     });
 
 app.use(favicon(path.join(__dirname, '../public', '/imgs/fav.ico')));

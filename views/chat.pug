@@ -1,27 +1,34 @@
-doctype html
-html
-    head
-        title Socket.IO chat
-        style.
-            * { margin: 0; padding: 0; box-sizing: border-box; }
-            body { font: 13px Helvetica, Arial; }
-            form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-            form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-            form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-            #messages { list-style-type: none; margin: 0; padding: 0; }
-            #messages li { padding: 5px 10px; }
-            #messages li:nth-child(odd) { background: #eee; }
-            #messages { margin-bottom: 40px }
-    body
-        ul#messages
-        button(onclick='test()') Click
-        form(action='')
-            input#m(autocomplete='off')
-            button#btn Send
-script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js')
-script(src='https://code.jquery.com/jquery-1.11.1.js')
-script.
-    function test(){
+extends home
+block extraHeader
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js')
+    script(src='https://code.jquery.com/jquery-1.11.1.js')
+block body-content
+    br
+    br
+    br
+    input#msg(type='text')
+    button#sendBtn(onclick='test()') Send
+    ul#messages
+block custom-scripts
+    script.
+        function test() {
         var socket = io();
-        socket.emit('msg', 'pedal')
-    }
+        let mess = document.getElementById("msg").value;
+        console.log(mess);
+        socket.emit('msg', mess);
+        let li = $(`<li>`).text(moment(Date.now()).format('HH:mm:ss') + ' || ' + mess);
+        $('#messages').append(li);
+                //	$('#messages').append($('<li></li>').text("5"));
+                // .on('msg', mess => {
+                //     let li = $('<li>').text(mess)
+                //     $('messages').append(li)
+                // })
+                // socket.on(mess, function(mssg){
+                // var ul = document.getElementById("messages");
+                // var li = document.createElement("li");
+                // ul.appendChild(document.createTextNode(mssg));
+                //  ul.appendChild(li);
+                //   window.scrollTo(0, document.body.scrollHeight);
+                // });
+        }
