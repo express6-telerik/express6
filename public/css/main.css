@@ -37,7 +37,7 @@ input, textarea, button {
 body>li{
     color: black;
 }
-body>a{
+div>a{
     color: black;
 }
 .loader {
