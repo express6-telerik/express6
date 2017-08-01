@@ -40,7 +40,8 @@
     "pug": "^2.0.0-rc.2",
     "serve-favicon": "^2.4.3",
     "sinon": "^2.4.1",
-    "socket.io": "^2.0.3"
+    "socket.io": "^2.0.3",
+    "supertest": "^3.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

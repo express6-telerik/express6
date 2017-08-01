@@ -36,7 +36,7 @@ gulp.task('tests:unit', ['pre-test'], () => {
 });
 
 const config = {
-    connectionString: 'mongodb://localhost/rooms-db-test',
+    connectionString: 'mongodb://localhost/room-db-test',
     port: 3081,
 };
 

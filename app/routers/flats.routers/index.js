@@ -1,6 +1,5 @@
 const init = (app, data) => {
     const controller = require('./controller').init(data);
-
    app.get('/flats', (req, res) => {
        return controller.getAll(req, res);
    });
