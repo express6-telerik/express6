@@ -83,19 +83,3 @@ block body-content
                 button(class="btn btng btn-primary btn-block" type="submit")
                     | Добави квартира
                 br
-block custom-scripts
-    script.
-        function readURL(input, tag) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $(`${tag}`)
-                        .attr('src', e.target.result)
-                        .width(150)
-                        .height(200);
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')

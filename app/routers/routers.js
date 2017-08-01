@@ -25,6 +25,10 @@ const init = (app, data) => {
         return res.render('contacts');
     });
 
+    app.post('/contacts', (req, res) =>{
+         res.redirect('/');
+    });
+
     app.get('/sign-up', (req, res) => {
         res.render('user/sign-up');
     });
@@ -35,8 +39,9 @@ const init = (app, data) => {
 
     app.get('/logout', (req, res) => {
         req.logout();
-        req.session.destroy(function (err) {
-            res.redirect('/')}); //Inside a callback… bulletproof!
+        req.session.destroy(function(err) {
+            res.redirect('/');
+}); // Inside a callback… bulletproof!
     });
     // app.get('/chat', (req, res) => {
     //     res.render('chat');

@@ -1,16 +1,31 @@
 extends home
-block extraHeader
-    link(rel="stylesheet", href="static/css/contacts.css")
+
 block body-content
-    #form-main
-        #form-div
-            form#form1.form(action='mailto:lilibabacheva@gmail.com', method='post', enctype='text/plain', role='form')
-                p.name
-                    input#name.feedback-input(name='name', type='text', class='validate[required,custom[onlyLetter],length[0,100]]', placeholder='Name')
-                p.email
-                    input#email.feedback-input(name='email', type='text', class='validate[required,custom[email]]', placeholder='Email')
-                p.text
-                    textarea#comment.feedback-input(name='text', class='validate[required,length[6,300]]', placeholder='Comment')
-                .submit
-                    input#button-blue(type='submit', name='submit' value='Изпрати')
-                    .ease
+    br
+    br
+    br
+    .contacts-panel.panel.panel-default
+        .panel-heading
+            h3 Team Express 6 - Telerk
+        .panel-body
+            strong Lamma  
+            a.btn.btn-info(href='http://telerikacademy.com/Users/Lamma') Lilyana Babacheva
+
+    .panel.panel-default
+        .panel-heading
+            h3 Contact us
+        .panel-body.contact-form
+            form#contact.form(action='mailto:lilibabacheva@yahoo.com', method='post', enctype='text/plain', role='form')
+                .row
+                    .col-xs-6.col-md-6.form-group
+                        input#name.form-control(name='name', placeholder='Name', type='text', required='', autofocus='')
+                    .col-xs-6.col-md-6.form-group
+                        input#email.form-control(name='email', placeholder='Email', type='email', required='')
+                textarea#message.form-control(name='message', placeholder='Message', rows='5')
+                br
+                .row
+                    .col-xs-12.col-md-12.form-group
+                        input.submit-cintact.btn.btn-primary(type='submit', name='submit', value='Submit')
+                        a.btn.btn-info(href='/')
+                                span.glyphicon.glyphicon-remove(aria-hidden='true')
+                                |  back to home

@@ -1,7 +1,15 @@
 extends home
-block extraHeader
-
+block extraScripts
+    script(type='text/javascript').
+        $(function () {
+            setTimeout(function () {
+                $('.loader').fadeOut('slow', function () {
+                    $(this).remove();
+                });
+            }, 2500);
+        });
 block body-content
+    .loader
     .layer
     br
     h1
