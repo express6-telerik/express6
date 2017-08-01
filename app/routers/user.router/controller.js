@@ -26,7 +26,7 @@ const init = (data) => {
                 });
         },
         getDetailedUser: (req, res) => {
-            //console.log(req);
+            // console.log(req);
             const username = req.params.username;
           //  console.log(username);
             data.users.getUserByUsername(username)

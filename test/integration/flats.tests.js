@@ -73,8 +73,8 @@ describe('flats router tests:', () => {
         //             });
         //     });
         // });
-    })
-    })
+    });
+    });
 
     // describe('/POST tests:', () => {
     //     const thread = {

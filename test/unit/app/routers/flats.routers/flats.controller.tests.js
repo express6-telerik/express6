@@ -70,7 +70,8 @@
 //                     },
 //                 };
 //                 FlatsData = init(data);
-//                 req = require('../../../req-res').getRequestMock({ params: params });
+//                 req = require('../../../req-res')
+// .getRequestMock({ params: params });
 //                 res = require('../../../req-res').getResponseMock();
 //             });
 //

@@ -43,6 +43,6 @@ const init = (app, data) => {
             res.redirect('/');
         });
     });
-}
+};
 
 module.exports = { init };

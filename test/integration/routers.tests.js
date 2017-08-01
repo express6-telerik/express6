@@ -1,5 +1,5 @@
 const request = require('supertest');
-const expect = require('chai').expect;
+
 
 describe('-- Other routes tests --', () => {
     const connectionString = 'mongodb://localhost/room-db-tests';

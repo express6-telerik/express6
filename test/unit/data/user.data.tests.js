@@ -39,9 +39,8 @@ describe('user.data methods tests:', () => {
         it('expect method to find name', () => {
             return data.findByUsername('test')
                 .then((models) => {
-                    expect(models).to.deep.equal({username: 'test'});
+                    expect(models).to.deep.equal({ username: 'test' });
                 });
-
         });
     });
 

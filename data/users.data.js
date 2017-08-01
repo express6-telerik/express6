@@ -22,8 +22,8 @@ class UsersData extends BaseData {
     checkForFreeUsername(username) {
         return this.filterBy()
             .then((users) => {
-                for (let i = 0; i < i.length; index+=1) {
-                    if (users[index].username === username) {
+                for (let i = 0; i < users.length; i+=1) {
+                    if (users[i].username === username) {
                         return {
                             valid: false,
                             msg: 'Този username е зает',

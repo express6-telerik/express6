@@ -1,16 +1,17 @@
 const init = (data) => {
     const FlatsData = data.flats;
     return {
-        getAll: (req, res) => { console.log(req);
+        getAll: (req, res) => {
+ console.log(req);
             return data.flats.getAll()
 
                 .then((flats) => {
                 let renView = '';
                 console.log(req.url);
                     if (req.url==='/flats') {
-                        renView = 'flats'
-                    }else{
-                        renView = 'vipflats'
+                        renView = 'flats';
+                    } else {
+                        renView = 'vipflats';
                     }
                     return res.render(renView, {
                         context: flats,
@@ -55,7 +56,7 @@ const init = (data) => {
                 price: price,
                 img: img,
             })
-                .then (data.users)
+                .then(data.users)
                 .then((user) => {
                     return {
                         result: {

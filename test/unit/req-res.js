@@ -1,6 +1,4 @@
-/**
- * Created by Lili on 7/31/2017.
- */
+
 const getRequestMock = (options = {}) => {
     const req = {};
 
