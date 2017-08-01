@@ -55,6 +55,14 @@ const init = (data) => {
                 price: price,
                 img: img,
             })
+                .then (data.users)
+                .then((user) => {
+                    return {
+                        result: {
+                            user: user,
+                        },
+                    };
+                })
                 .then((createdFlat) => {
                     return res.redirect('/flats');
                 });
