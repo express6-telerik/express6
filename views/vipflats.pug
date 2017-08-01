@@ -1,2 +1,42 @@
 extends home
 block body-content
+    .layer
+    br
+    h1
+    | Квартири, очакващи своите хора
+    br
+    .center
+    each flat in context
+        if flat.vipstatus
+            -var content= flat.content
+            .container
+                .row
+                    .col-sm-4.col-md-4.center-block
+                        .post
+                            .post-img-content
+                                img.img-responsive(src=flat.img)
+                                span.post-title
+                                    a(href='/flat/' + flat._id )
+                                        b #{flat.title}
+
+                                    br
+                            .content
+                                .author
+                                    | От:
+                                    a(href='/profile/'+ flat.username)
+                                        b  #{flat.username}
+                                    |     |
+                                    time(datetime='#{flat.startDate}')   Начална дата: #{flat.startDate}
+                                    |
+                                    |  | В:
+                                    b  #{flat.location}
+                                    |
+                                    |
+                                    |  | Наем:
+                                    b  #{flat.price} лева
+                                    |
+                                div
+                                    p=(content.substring(0,100))
+                                div
+                                    a.btn.btn-warning.btn-sm(href='/flat/' + flat._id ) Виж цялата обява
+            br
